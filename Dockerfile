@@ -14,10 +14,10 @@ RUN rm -rf /var/www/index.html
 
 COPY deploymentfile /opt/notebooks/deploymentfile
 COPY index.html /var/www/index.html
+RUN source /etc/apache2/envvars
 
 #Start port 80
 EXPOSE 80
 
 # Start Apache
-ENTRYPOINT ["/usr/sbin/apache2", "-k", "start"]
-
+CMD apache2ctl -D FOREGROUND
