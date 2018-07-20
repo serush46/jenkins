@@ -14,7 +14,7 @@ RUN rm -rf /var/www/index.html
 
 COPY deploymentfile /opt/notebooks/deploymentfile
 COPY index.html /var/www/index.html
-RUN source /etc/apache2/envvars
+CMD source /etc/apache2/envvars
 
 #Start port 80
 EXPOSE 80
