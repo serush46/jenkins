@@ -13,7 +13,7 @@ RUN mkdir /opt/notebooks
 RUN rm -rf /var/www/html/index.html
 
 COPY deploymentfile /opt/notebooks/deploymentfile
-COPY index.html /var/www/index.html
+COPY index.html /var/www/html/index.html
 CMD source /etc/apache2/envvars
 
 #Start port 80
