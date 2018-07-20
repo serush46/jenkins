@@ -10,7 +10,7 @@ RUN apt-get install -y apache2 && apt-get clean
 
 # Configuring access to Jupyter 
 RUN mkdir /opt/notebooks
-RUN rm -rf /var/www/index.html
+RUN rm -rf /var/www/html/index.html
 
 COPY deploymentfile /opt/notebooks/deploymentfile
 COPY index.html /var/www/index.html
