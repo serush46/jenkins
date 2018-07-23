@@ -1,24 +1,24 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: hello
+  name: frontend-deploy
 spec:
   selector:
     matchLabels:
-      app: hello
-      tier: backend
+      app: apache
+      tier: web
       track: stable
   replicas: 2
   template:
     metadata:
       labels:
-        app: hello
-        tier: backend
+        app: apache
+        tier: web
         track: stable
     spec:
       containers:
         - name: hello
-          image: nginx
+          image: serush46/apache:${BUILD_NUMBER}
           ports:
             - name: http
               containerPort: 80
@@ -27,11 +27,11 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: hello
+  name: frontend-lb
 spec:
   selector:
-    app: hello
-    tier: backend
+    app: apache
+    tier: web
   ports:
   - protocol: TCP
     port: 3146
